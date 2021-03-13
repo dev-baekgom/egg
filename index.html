@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" integrity="sha512-RdSPYh1WA6BF0RhpisYJVYkOyTzK4HwofJ3Q7ivt/jkpW6Vc8AurL1R+4AUcvn9IwEKAPm/fk7qFZW3OuiUDeg==" crossorigin="anonymous"></script>
+	<title>Golden Egg Challenge 🐣</title>
+</head>
+<body>
+	<img id="egg" src="https://i.ibb.co/JxDzXQ0/egg3.png" onclick="egg_click();">
+	<h1 id="text">20000</h1>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+		body {
+			background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+			height: 100vh;
+			z-index: 0;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		#egg {
+			position: fixed;
+			height : 100%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+		}
+
+		#text{
+			color: white;
+			position: fixed;
+			font-size: 10vw;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-webkit-text-stroke: 1px #000;
+			z-index: 2;
+		}
+
+	</style>
+	<script>
+		bootbox.alert({
+			title: "Rules",
+			message: "1. Click the egg to break it!<br> 2. Whoever breaks the egg gets a reward of 100$!! 💰 <br> Sponsered by : <a href='https://google.com'>Google</a>, <a href='https://www.mozilla.org/en-US/'>Mozilla<a>, <a href='https://www.facebook.com/'>Facebook</a>, <a href='https://twitter.com/?lang=ko'>Twitter</a?"
+		})
+		var start = new Date();
+		var egg_num = 20000;
+
+		function egg_click(){
+			egg_num--;
+			document.getElementById('text').innerHTML = egg_num;
+			if(egg_num == 0){
+				var end = new Date();
+				bootbox.alert({
+					title: "You're fuckin' idiot!",
+					message: "What did you imageine?<br>" + "HAHA!!<br>" + "You WASTED " + msToTime(end - start) + "<br>Share <a href='" + window.location.herf + "'>this Prank</a> to your friends!"
+				})
+			}
+		}
+
+		function msToTime(duration) {
+			var milliseconds = parseInt((duration % 1000) / 100),
+				seconds = Math.floor((duration / 1000) % 60),
+				minutes = Math.floor((duration / (1000 * 60)) % 60),
+				hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+			hours = (hours < 10) ? "0" + hours : hours;
+			minutes = (minutes < 10) ? "0" + minutes : minutes;
+			seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+			return hours + "h : " + minutes + "m : " + seconds + "." + milliseconds + "s";
+		}
+    </script>
+</body>
+</html>	
